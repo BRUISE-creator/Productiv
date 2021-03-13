@@ -8,33 +8,42 @@ import {
   Code,
   Grid,
   theme,
+  CSSReset,
+  Flex,
+  Spacer,
+  Heading,
+  Drawer,
+  isOpen,
+  onClose,
+  btnRef,
+  onOpen,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
+import { Button, ButtonGroup } from "@chakra-ui/react";
+import { ThemeProvider } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
+import DrawerExample from './components/addtask';
+import Pomodoro from "./components/pomodoro";
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
+    <ChakraProvider>
+      <Flex padding="10">
+        <Spacer />
+        <Box p="2">
+          <Heading size="xl">Productiv</Heading>
+        </Box>
+        <Spacer />
+        <DrawerExample>
+
+
+        </DrawerExample>
+      </Flex>
+      <div className="App">
+        
+        <Pomodoro/>
+      </div>
     </ChakraProvider>
   );
 }
